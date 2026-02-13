@@ -50,6 +50,7 @@ func init() {
 	addSubCommand("click", "bridges https://github.com/pallets/click", bridge.ActionClick)
 	addSubCommand("cobra", "bridges https://github.com/spf13/cobra", bridge.ActionCobra)
 	addSubCommand("complete", "bridges https://github.com/posener/complete", bridge.ActionComplete)
+	addSubCommand("dotnet-suggest", "bridges https://github.com/dotnet/command-line-api", bridge.ActionDotnetSuggest)
 	addSubCommand("fish", "bridges completions registered in fish", bridge.ActionFish)
 	addSubCommand("gcloud", "bridges https://docs.cloud.google.com/sdk/gcloud", bridge.ActionGcloud)
 	addSubCommand("inshellisense", "bridges https://github.com/microsoft/inshellisense", bridge.ActionInshellisense)
