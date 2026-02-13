@@ -2,6 +2,7 @@ package bridge
 
 import (
 	"os/exec"
+	"runtime"
 	"strings"
 
 	"github.com/carapace-sh/carapace"
@@ -28,7 +29,11 @@ func ActionDotnetSuggest(command ...string) carapace.Action {
 			args := []string{"get", "--executable", path, "--", input}
 
 			return carapace.ActionExecCommand("dotnet-suggest", args...)(func(output []byte) carapace.Action {
-				lines := strings.Split(string(output), "\r\n")
+				separator := "\n"
+				if runtime.GOOS == "windows" {
+					separator = "\r\n"
+				}
+				lines := strings.Split(string(output), separator)
 
 				switch len(lines) {
 				case 0:
