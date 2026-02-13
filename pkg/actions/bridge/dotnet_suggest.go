@@ -28,7 +28,7 @@ func ActionDotnetSuggest(command ...string) carapace.Action {
 			args := []string{"get", "--executable", path, "--", input}
 
 			return carapace.ActionExecCommand("dotnet-suggest", args...)(func(output []byte) carapace.Action {
-				lines := strings.Split(string(output), "\n")
+				lines := strings.Split(string(output), "\r\n")
 
 				switch len(lines) {
 				case 0:
